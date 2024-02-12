@@ -9,6 +9,7 @@ import EventEntry from "./pages/Event/EventEntry";
 import Login from "./pages/Login/Login";
 import SignUp from "./pages/SignUp/SignUp";
 import Discussion from "./pages/Discussion/Discussion";
+import ForgetPassword from "./pages/ForgetPassword/ForgetPassword";
 
 const App=createBrowserRouter([
   {
@@ -47,6 +48,10 @@ const App=createBrowserRouter([
       {
         path:"discussion",
         element:<Discussion/>
+      },
+      {
+        path:"forgetPassword",
+        element:<ForgetPassword/>
       }
     ]
   },
