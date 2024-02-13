@@ -55,6 +55,7 @@ const Navbar = () => {
                             <li><Link to={"/sponsorEntry"}>Sponsor Entry</Link></li>
                         </ul>
                     </div>
+                    <Link  className="btn mx-2" to={"/dashboard"}>Dashboard</Link>
                     <button onClick={handleLogOut} className="btn mx-2" to={"/login"}>LogOut</button>
                 </> : <>
                     <div className="navbar-end ">

@@ -10,49 +10,61 @@ import Login from "./pages/Login/Login";
 import SignUp from "./pages/SignUp/SignUp";
 import Discussion from "./pages/Discussion/Discussion";
 import ForgetPassword from "./pages/ForgetPassword/ForgetPassword";
+import Dashboard from "./pages/Dashboard/Dashboard";
 
-const App=createBrowserRouter([
+const App = createBrowserRouter([
   {
-    path:"/",
-    element:<MainLayout/>,
-    errorElement:<WrongRoute/>,
-    children:[
+    path: "/",
+    element: <MainLayout />,
+    errorElement: <WrongRoute />,
+    children: [
       {
-        path:"/",
-        element:<Home/>
+        path: "/",
+        element: <Home />
       },
       {
-        path:"committeeEntry",
-        element:<CommitteeEntry/>
+        path: "committeeEntry",
+        element: <CommitteeEntry />
       },
       {
-        path:"eventEntry",
-        element:<EventEntry/>
+        path: "eventEntry",
+        element: <EventEntry />
       },
       {
-        path:"sponsorEntry",
-        element:<EventSponsorEntry/>
+        path: "sponsorEntry",
+        element: <EventSponsorEntry />
       },
       {
-        path:"eventCommitteeEntry",
-        element:<EventCommitteeEntry/>
+        path: "eventCommitteeEntry",
+        element: <EventCommitteeEntry />
       },
       {
-        path:"login",
-        element:<Login/>
+        path: "login",
+        element: <Login />
       },
       {
-        path:"signUp",
-        element:<SignUp/>
+        path: "signUp",
+        element: <SignUp />
       },
       {
-        path:"discussion",
-        element:<Discussion/>
+        path: "discussion",
+        element: <Discussion />
       },
       {
-        path:"forgetPassword",
-        element:<ForgetPassword/>
+        path: "forgetPassword",
+        element: <ForgetPassword />
       }
+    ]
+  },
+  {
+    path: "/dashboard",
+    element: <Dashboard />,
+    errorElement: <WrongRoute />,
+    children: [
+      {
+        path: "*",
+        element: <Dashboard/>
+      },
     ]
   },
 ])
