@@ -1,20 +1,18 @@
-import { useEffect, useState } from "react";
+import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../Provider/AuthProvider";
+
 
 const Navbar = () => {
-    const [user, setUser] = useState({});
     const [loading, setLoading] = useState(false);
+    const { user } = useContext(AuthContext);
 
     const handleLogOut = async () => {
-        // setLoading(true);
+        setLoading(true);
         localStorage.removeItem('userInfo');
-        setUser({});
         window.location.reload();
-        // setLoading(false);
+        setLoading(false);
     }
-    useEffect(() => {
-        setUser(JSON.parse(localStorage.getItem('userInfo')));
-    }, []);
     if (loading) {
         return <div className="text-center text-xl"><span className="loading loading-spinner loading-lg text-info "></span></div>
     }
@@ -56,7 +54,7 @@ const Navbar = () => {
                             <li><Link to={"/forum"}>Forum</Link></li>
                         </ul>
                     </div>
-                    <Link  className="btn mx-2" to={"/dashboard"}>Dashboard</Link>
+                    <Link className="btn mx-2" to={"/dashboard"}>Dashboard</Link>
                     <button onClick={handleLogOut} className="btn mx-2" to={"/login"}>LogOut</button>
                 </> : <>
                     <div className="navbar-end ">

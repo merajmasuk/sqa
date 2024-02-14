@@ -80,6 +80,10 @@ const subjectCourseRoute=require("./routes/subjectCourse.route");
 app.use("/api/v1",subjectCourseRoute);
 
 
+//assessment route
+const assessmentRoute=require("./routes/assessment.route");
+app.use("/api/v1",assessmentRoute);
+
 app.get("/", (req, res) => {
     res.sendFile(__dirname + "/views/index.html");
 });
