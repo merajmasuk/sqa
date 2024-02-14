@@ -11,6 +11,9 @@ import SignUp from "./pages/SignUp/SignUp";
 import Discussion from "./pages/Discussion/Discussion";
 import ForgetPassword from "./pages/ForgetPassword/ForgetPassword";
 import Dashboard from "./pages/Dashboard/Dashboard";
+import Admin from "./pages/Dashboard/Admin";
+import Revenue from "./pages/Dashboard/Revenue";
+import PrivateRoute from "./route/PrivateRoute";
 
 const App = createBrowserRouter([
   {
@@ -24,7 +27,7 @@ const App = createBrowserRouter([
       },
       {
         path: "committeeEntry",
-        element: <CommitteeEntry />
+        element:<PrivateRoute><CommitteeEntry /></PrivateRoute>
       },
       {
         path: "eventEntry",
@@ -58,14 +61,17 @@ const App = createBrowserRouter([
   },
   {
     path: "/dashboard",
-    element: <Dashboard />,
-    errorElement: <WrongRoute />,
-    children: [
+    element:<Dashboard></Dashboard>,
+    children:[
       {
-        path: "*",
-        element: <Dashboard/>
+        path:"/dashboard",
+        element:<Admin></Admin>
+      },
+      {
+        path: "revenue",
+        element:<Revenue/>
       },
     ]
-  },
+  }
 ])
 export default App;

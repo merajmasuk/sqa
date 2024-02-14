@@ -1,34 +1,38 @@
+
 import { FaBars, FaBell, FaCog, FaExpand, FaHouseDamage } from "react-icons/fa";
-// import logo from "../assets/img/logo-main/logo.png"
+import logo from "../../assets/img/logo-main/logo.png"
 import { Outlet, useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import {
     FaAddressCard, FaAngular, FaArtstation, FaBriefcase, FaDollarSign, FaExternalLinkAlt, FaLock, FaQrcode, FaRegClone,
 } from "react-icons/fa";
-// import useNotification from "../hooks/useNotification";
 import { useState } from "react";
+
 import { useEffect } from "react";
+import axios from "axios";
+import profile from "../../assets/professional.jpg";
 
 const Dashboard = () => {
-    const [user, setUser] = useState({});
     const [status, setStatus] = useState(false);
-    const [adminStatus, setAdminStatus] = useState(false);
+    const [adminStatus,setAdminStatus]=useState(true);
     const navigate = useNavigate();
-
     useEffect(() => {
-        setUser(JSON.parse(localStorage.getItem('userInfo')));
-    }, []);
+    }, [])
+
+    useEffect(()=>{
+        axios.get(`https://crowd-founding-new-server-site.vercel.app/api/authentication/admin/mdraselislam1944@gmail.com`,{
+            headers:{
+                Authorization: `bearer ${localStorage.getItem('set-token-for-user')}`
+            }
+        })
+        .then(res=>setAdminStatus(res.data.admin));
+    },[]);
+
     if (status) {
         localStorage.removeItem('set-token-for-user');
         setStatus(false);
         navigate('/login')
     }
-    // const [notification] = useNotification()
-    // if(isLoading){
-    //     return <progress className="progress w-56"></progress>
-    // }
-    // const [isAdmin,loading]=useAdmin();
-    // console.log(email,isAdmin,loading);
 
 
     return (
@@ -45,11 +49,11 @@ const Dashboard = () => {
                         <Link to="/dashboard/notifications">
                             <button className="flex">
                                 <FaBell className="text-center text-3xl text-white" />
-                                <div className="badge">+{ 0}</div>
+                                <div className="badge">+{0}</div>
                             </button>
                         </Link>
                         <div className="avatar">
-                            <div className="w-12 cursor-pointer rounded-full" title={name}>
+                            <div className="w-12 cursor-pointer rounded-full" title={""}>
                                 <img src={""} />
                             </div>
                         </div>
@@ -57,7 +61,7 @@ const Dashboard = () => {
                 </div>
                 <div className="">
                     <div className="md:w-64 w-40 absolute z-30 top-5 md:top-2 md:left-5 left-4 lg:hidden md:hidden block">
-                        <Link to="/"><img src={""} alt="" /></Link>
+                        <Link to="/"><img src={logo} alt="" /></Link>
                     </div>
 
                     <label
@@ -72,7 +76,7 @@ const Dashboard = () => {
                 <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
                 <ul className="bg-gradient-to-r from-black via-black to-[#F99F24]  text-white overflow-y-scroll menu p-4 w-80 h-full ">
                     {/* Sidebar content here */}
-                    <img src={""} className="w-52 ml-8" alt="" />
+                    <img src={logo} className="w-52 ml-8" alt="" />
 
                     {/* Sidebar content here */}
 
@@ -88,7 +92,7 @@ const Dashboard = () => {
                             </div>
                         </li>
                         {
-                            user ? <>
+                           adminStatus ? <>
                                 <li className="mt-3">
                                     <div className="flex flex-row hover:bg-gray-400">
                                         <FaDollarSign className="border rounded-full"></FaDollarSign>
@@ -215,3 +219,4 @@ const Dashboard = () => {
     );
 }
 export default Dashboard;
+
