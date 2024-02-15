@@ -4,7 +4,7 @@ Project for SQA (Software Quality Assurance) Course
 
 ## Table of Contents
 
-- [Project Name](#project-name)
+- [Project Name](#Online course management)
   - [Table of Contents](#table-of-contents)
   - [Description](#description)
   - [Prerequisites](#prerequisites)
