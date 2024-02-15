@@ -75,6 +75,11 @@ app.use("/api/v1",maintenanceupdatesRoute);
 const coursereflectionModel = require('./models/coursereflection.model');
 app.use("/api/v1",coursereflectionModel);
 
+//subject course
+const subjectCourseRoute=require("./routes/subjectCourse.route");
+app.use("/api/v1",subjectCourseRoute);
+
+
 app.get("/", (req, res) => {
     res.sendFile(__dirname + "/views/index.html");
 });
