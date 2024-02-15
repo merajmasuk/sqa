@@ -86,6 +86,10 @@ const App = createBrowserRouter([
       {
         path: "payment",
         element: <Payment />
+      },
+      {
+        path: "resetPassword",
+        element:<PrivateRoute><ResetPassword /></PrivateRoute> 
       }
     ]
   },

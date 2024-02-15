@@ -76,7 +76,6 @@ const getUser = async (req, res) => {
      * @returns {void}
      * @throws {Error} If there is an issue with retrieving the user data.
      */
-
     const data = req.body;
     try {
         // Find the user with the provided email
