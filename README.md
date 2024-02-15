@@ -13,12 +13,10 @@ Database: MongoDB
 # How to run
 ## Prerequisites
 
-Install nodeJS from https://nodejs.org/en/download
-or,
-On linux:
-```
-sudo apt install nodejs
-```
+Before you begin, ensure you have met the following requirements:
+
+- [Node.js](https://nodejs.org/) (at least version 18)
+- [npm](https://www.npmjs.com/) (at least version 9)
 
 
 ## Dependencies
@@ -31,10 +29,8 @@ npm install
 
 and 
 
-```
-cd backend
-npm install
-```
+   ```bash
+   git clone https://github.com/merajmasuk/sqa.git
 
 
 ## Build & Run
