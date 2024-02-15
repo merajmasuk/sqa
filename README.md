@@ -11,11 +11,11 @@ Short project description goes here.
   - [Getting Started](#getting-started)
     - [Installation](#installation)
     - [Configuration](#configuration)
+    - [Testing](#testing)
   - [Folder Structure](#folder-structure)
   - [Environment Variables](#environment-variables)
   - [Scripts](#scripts)
   - [API Documentation](#api-documentation)
-  - [Testing](#testing)
   - [Contributing](#contributing)
   - [License](#license)
   - [Acknowledgments](#acknowledgments)
@@ -51,4 +51,12 @@ These instructions will help you set up and run the project on your local machin
    npm install -f
    added .env file in the existing folder
    npm start
+   ```
+
+### Testing
+
+2. user management testing:
+
+   ```bash
+   npm test
    ```
