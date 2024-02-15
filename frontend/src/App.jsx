@@ -90,6 +90,10 @@ const App = createBrowserRouter([
       {
         path: "resetPassword",
         element:<PrivateRoute><ResetPassword /></PrivateRoute> 
+      },
+      {
+        path: "resetPassword",
+        element:<PrivateRoute><ResetPassword /></PrivateRoute> 
       }
     ]
   },
