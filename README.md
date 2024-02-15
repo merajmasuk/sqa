@@ -11,7 +11,8 @@ Short project description goes here.
   - [Getting Started](#getting-started)
     - [Installation](#installation)
     - [Configuration](#configuration)
-    - [Testing](#testing)
+  - [Testing](#testing)
+  - [JSdoc](#user management documentation)
   - [Folder Structure](#folder-structure)
   - [Environment Variables](#environment-variables)
   - [Scripts](#scripts)
@@ -40,7 +41,7 @@ These instructions will help you set up and run the project on your local machin
 1. Clone the repository:
 
    ```bash
-   git https://github.com/mdraselislam1944/sqa.git
+   git clone https://github.com/mdraselislam1944/sqa.git
 
    cd frontend
    npm install -f
@@ -59,4 +60,16 @@ These instructions will help you set up and run the project on your local machin
 
    ```bash
    npm test
+   ```
+
+### JSdoc
+
+3. user management testing:
+
+   ```bash
+   cd backend
+   cd controllers
+   cd out
+   open user.controller.js click mouse right click and "open with Live server" button.
+
    ```
