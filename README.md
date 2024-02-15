@@ -32,6 +32,7 @@ Database: MongoDB
 ## Prerequisites
 
 Before you begin, ensure you have met the following requirements:
+
 - [Node.js](https://nodejs.org/) (at least version 18)
 - [npm](https://www.npmjs.com/) (at least version 9)
 
@@ -44,7 +45,7 @@ These instructions will help you set up and run the project on your local machin
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/mdraselislam1944/sqa.git
+   git clone https://github.com/merajmasuk/sqa.git
 
    cd frontend
    npm install -f

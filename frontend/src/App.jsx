@@ -16,6 +16,7 @@ import Payment from "./pages/Payment/Payment";
 import Admin from "./pages/Dashboard/Admin";
 import Revenue from "./pages/Dashboard/Revenue";
 import PrivateRoute from "./route/PrivateRoute";
+import ResetPassword from "./pages/ResetPassword/ResetPassword";
 
 const App = createBrowserRouter([
   {
@@ -66,6 +67,10 @@ const App = createBrowserRouter([
       {
         path: "payment",
         element: <Payment />
+      },
+      {
+        path: "resetPassword",
+        element:<PrivateRoute><ResetPassword /></PrivateRoute> 
       }
     ]
   },
