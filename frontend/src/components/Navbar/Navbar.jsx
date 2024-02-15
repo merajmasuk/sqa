@@ -54,6 +54,7 @@ const Navbar = () => {
                         </ul>
                     </div>
                     <Link className="btn mx-2" to={"/dashboard"}>Dashboard</Link>
+                    <Link  className="btn mx-2" to={"/resetPassword"}>ResetPassword</Link>
                     <button onClick={handleLogOut} className="btn mx-2" to={"/login"}>LogOut</button>
                 </> : <>
                     <div className="navbar-end ">

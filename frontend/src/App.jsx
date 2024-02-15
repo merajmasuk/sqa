@@ -14,6 +14,7 @@ import Dashboard from "./pages/Dashboard/Dashboard";
 import Admin from "./pages/Dashboard/Admin";
 import Revenue from "./pages/Dashboard/Revenue";
 import PrivateRoute from "./route/PrivateRoute";
+import ResetPassword from "./pages/ResetPassword/ResetPassword";
 
 const App = createBrowserRouter([
   {
@@ -56,6 +57,10 @@ const App = createBrowserRouter([
       {
         path: "forgetPassword",
         element: <ForgetPassword />
+      },
+      {
+        path: "resetPassword",
+        element:<PrivateRoute><ResetPassword /></PrivateRoute> 
       }
     ]
   },
