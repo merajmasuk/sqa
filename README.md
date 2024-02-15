@@ -11,7 +11,7 @@ Project for SQA (Software Quality Assurance) Course
     - [Installation](#installation)
     - [Configuration](#configuration)
   - [Testing](#testing)
-  - [JSdoc](#user management documentation)
+  - [JSdoc](#jsdoc)
   - [Folder Structure](#folder-structure)
   - [Environment Variables](#environment-variables)
   - [Scripts](#scripts)
