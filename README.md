@@ -1,6 +1,26 @@
 # Course Management System
 Project for SQA (Software Quality Assurance) Course
 
+## Table of Contents
+
+- [Project Name](#Online course management)
+  - [Table of Contents](#table-of-contents)
+  - [Description](#description)
+  - [Prerequisites](#prerequisites)
+  - [Getting Started](#getting-started)
+    - [Installation](#installation)
+    - [Configuration](#configuration)
+  - [Folder Structure](#folder-structure)
+  - [Environment Variables](#environment-variables)
+  - [Scripts](#scripts)
+  - [API Documentation](#api-documentation)
+  - [Testing](#testing)
+  - [Contributing](#contributing)
+  - [License](#license)
+  - [Acknowledgments](#acknowledgments)
+
+## Description
+#### Tech Stack
 
 # Tech Stack
 MERN (MongoDB, ExpressJS, ReactJS, NodeJS
@@ -24,10 +44,12 @@ Install package dependencis required for the app by entering `npm install`. This
 
 ```
 cd frontend
-npm install
+npm install -f
+cd ../backend
+npm install -f
 ```
 
-and 
+Clone the repository:
 
    ```bash
    git clone https://github.com/merajmasuk/sqa.git
