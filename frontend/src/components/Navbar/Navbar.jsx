@@ -52,7 +52,8 @@ const Navbar = () => {
                             <li><Link to={"/committeeEntry"}>Committee Entry</Link></li>
                             <li><Link to={"/eventEntry"}>Event Entry</Link></li>
                             <li><Link to={"/eventCommitteeEntry"}>Event committee Entry</Link></li>
-                            <li><Link to={"/sponsorEntry"}>Sponsor Entry</Link></li>
+                            <li><Link to={"/sponsorEntry"}>Sponsor Entry</Link></li>                            
+                            <li><Link to={"/forum"}>Forum</Link></li>
                         </ul>
                     </div>
                     <Link  className="btn mx-2" to={"/dashboard"}>Dashboard</Link>

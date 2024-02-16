@@ -11,6 +11,7 @@ import SignUp from "./pages/SignUp/SignUp";
 import Discussion from "./pages/Discussion/Discussion";
 import ForgetPassword from "./pages/ForgetPassword/ForgetPassword";
 import Dashboard from "./pages/Dashboard/Dashboard";
+import Forum from "./pages/Forum/Forum";
 
 const App = createBrowserRouter([
   {
@@ -53,6 +54,10 @@ const App = createBrowserRouter([
       {
         path: "forgetPassword",
         element: <ForgetPassword />
+      },
+      {
+        path: "forum",
+        element: <Forum />
       }
     ]
   },
