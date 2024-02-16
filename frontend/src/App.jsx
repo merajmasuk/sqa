@@ -78,6 +78,10 @@ const App = createBrowserRouter([
       {
         path:"practice",
         element:<PrivateRoute><AdminRoute><Practice/></AdminRoute></PrivateRoute>
+      },
+      {
+        path: "forum",
+        element: <Forum />
       }
     ]
   },
