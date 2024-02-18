@@ -56,6 +56,10 @@ const Forum = function() {
      */
     function onDeleteItem(id){
         console.log(id);
+        fetch(`http://localhost:5000/api/v1/deleteForum/${id}`, {
+                method: "DELETE",
+        }).then(response => response.json());
+        window.location.reload();
     }
 
     /**
@@ -96,7 +100,6 @@ const Forum = function() {
                         <h1>name: {item.name}</h1>
                         <h2>email: {item.email}</h2>
                         <p>message: {item.message}</p>
-                        <p>id: {item._id}</p>
                         <br></br>
                         <button className="btn" onClick={() => {onDeleteItem(item._id)}}> DEL </button>
                     </div>
