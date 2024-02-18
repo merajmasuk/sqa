@@ -82,6 +82,10 @@ const App = createBrowserRouter([
       {
         path: "forum",
         element: <Forum />
+      },
+      {
+        path: "payment",
+        element: <Payment />
       }
     ]
   },
