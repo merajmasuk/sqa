@@ -1,64 +1,79 @@
-# Course Management System
+## Course Management System
+
 Project for SQA (Software Quality Assurance) Course
 
+## Table of Contents
 
-# Tech Stack
+- [Project Name](#project-name)
+  - [Table of Contents](#table-of-contents)
+  - [Description](#description)
+  - [Prerequisites](#prerequisites)
+  - [Getting Started](#getting-started)
+    - [Installation](#installation)
+    - [Configuration](#configuration)
+  - [Folder Structure](#folder-structure)
+  - [Environment Variables](#environment-variables)
+  - [Scripts](#scripts)
+  - [API Documentation](#api-documentation)
+  - [Testing](#testing)
+  - [Contributing](#contributing)
+  - [License](#license)
+  - [Acknowledgments](#acknowledgments)
+
+## Description
+#### Tech Stack
+
 MERN (MongoDB, ExpressJS, ReactJS, NodeJS
 
 Fontend: ReactJS
 Backend: NodeJS + ExpressJS
 Database: MongoDB
 
-
-# How to run
 ## Prerequisites
 
-Install nodeJS from https://nodejs.org/en/download
-or,
-On linux:
-```
-sudo apt install nodejs
-```
+Before you begin, ensure you have met the following requirements:
+- [Node.js](https://nodejs.org/) (at least version 18)
+- [npm](https://www.npmjs.com/) (at least version 9)
 
+## Getting Started
 
-## Dependencies
-Install package dependencis required for the app by entering `npm install`. This have to be entered inside frontend and backend directory each.
+These instructions will help you set up and run the project on your local machine.
 
-```
-cd frontend
-npm install
-```
+### Installation
 
-and 
+1. Clone the repository:
 
-```
-cd backend
-npm install
-```
+   ```bash
+   git clone https://github.com/mdraselislam1944/sqa.git
 
+   cd frontend
+   npm install -f
+   npm run dev
 
-## Build & Run
-After installing necessary dependencies, start the app by running the nodemon service.
+   cd ..
+   cd backend
+   npm install -f
+   npm start
+   ```
 
-On backend directory,
-```
-npm start
-```
+**NOTE:** The backend requires a special `.env` file to run properly, this contains various secret keys, database authentications etc. For security this has been exempted from the GitHub repository. Please contact one of the repository maintainers for the access.
 
-On frontend directory,
-```
-npm run dev
-```
+### Testing
 
-**NOTE:** The backend requires a special `.env` file to run properly, this contains various secret keys, database authentications etc. For security this has been exempted from the github repository. Please contact one of the repository maintainers for the access.
+2. For testing, enter the following command:
 
+   ```bash
+   npm test
+   ```
 
-## Issues
-Sometimes one or both of the app servers may fail to run. This can occur due to some node packages not being correctly installed. Simply enter the following command to force installed required packages
+### JSdoc
 
-```
-npm install -f
-```
+3. user management testing:
 
-Then enter `npm start` or `npm rub dev` depending on which app you are trying to run.
+   ```bash
+   cd backend
+   cd controllers
+   cd out
+   # open user.controller.js click mouse right click and "open with Live server" button.
+   ```
 
