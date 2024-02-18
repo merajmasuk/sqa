@@ -117,7 +117,7 @@ const Dashboard = () => {
                                     <div className="flex flex-row hover:bg-gray-400">
                                         {/* <img className="w-4 h-4" src={products} alt="" /> */}
                                         <FaRegClone></FaRegClone>
-                                        <Link className=" w-full rounded-none m-0" to="/dashboard/UserPayment">
+                                        <Link className=" w-full rounded-none m-0" to="/payment">
                                             Payment
                                         </Link>
                                     </div>
