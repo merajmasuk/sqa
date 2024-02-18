@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import './Forum.css';
 
 const Forum = function() {
     
@@ -8,6 +9,21 @@ const Forum = function() {
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [message, setMessage] = useState("");
+    const [datas, setDatas] = useState([]);
+
+    /***
+     * Fetch Data from REST API
+     */
+    useEffect(function () {
+        fetch('http://localhost:5000/api/v1/getForum')
+        .then(function (res) {
+            return res.json();
+        }).then(function (data) {
+            console.log(data.data);
+            setDatas(data.data);
+        });
+    }, []);
+
 
     /***
      * keep track of name
@@ -35,11 +51,50 @@ const Forum = function() {
     }
 
     /**
+     * Form data to API Post method
+     */
+    function sendData()
+    {
+        console.log(JSON.stringify({
+            name: name,
+            email: email,
+            message: message,
+        }));
+
+        fetch(`http://localhost:5000/api/v1/setForum`, {
+            method: "POST",
+            body: JSON.stringify({
+                name: name,
+                email: email,
+                message: message,
+            }),
+            headers: { 'Content-Type': 'application/json' }   
+        }).then(response => response.json());
+        ; 
+
+         window.location.reload();
+    }
+
+
+    /***
+     * Delete a specific message from Discussion
+     */
+    function onDeleteItem(id){
+        console.log(id);
+        fetch(`http://localhost:5000/api/v1/deleteForum/${id}`, {
+                method: "DELETE",
+        }).then(response => response.json());
+        window.location.reload();
+    }
+
+    
+
+    /**
      * Create Form entry for Forum and Discussion
      */
     return (
         <div>
-            <h1 className="max-w-sm mx-auto" >Forum & Discussion</h1>
+            <h1 className="max-w-sm mx-auto abc" >Forum & Discussion</h1>
 
             <form className="max-w-sm mx-auto" method="post">
                 <div className="mb-5">
@@ -57,9 +112,29 @@ const Forum = function() {
                     <label for="message" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your message</label>
                     <textarea type="text" id="message" rows={5} value={message} onChange={handleChangeMessage} class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Hello there" required />
                 </div>
-                <button type="submit" class="text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">submit</button>
+                <button type="button" onClick={sendData} class="text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">submit</button>
 
             </form>
+        
+
+            <div>
+            
+                <h1 className="abc">Discussion</h1>
+                <br></br>   
+                {
+                    datas.map(item => (
+                    <div className="border-4">
+                        <h1>name: {item.name}</h1>
+                        <h2>email: {item.email}</h2>
+                        <p>message: {item.message}</p>
+                        <br></br>
+                        <button className="btn" onClick={() => {onDeleteItem(item._id)}}> DEL </button>
+                    </div>
+                    ))
+                }
+            </div>
+
+        
         </div>
         
     );
