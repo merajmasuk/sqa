@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import './Forum.css';
 
 const Forum = function() {
     
@@ -8,6 +9,21 @@ const Forum = function() {
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [message, setMessage] = useState("");
+    const [datas, setDatas] = useState([]);
+
+    /***
+     * Fetch Data from REST API
+     */
+    useEffect(function () {
+        fetch('http://localhost:5000/api/v1/getForum')
+        .then(function (res) {
+            return res.json();
+        }).then(function (data) {
+            console.log(data.data);
+            setDatas(data.data);
+        });
+    }, []);
+
 
     /***
      * keep track of name
@@ -34,12 +50,20 @@ const Forum = function() {
         console.log(message);
     }
 
+
+    /***
+     * Delete a specific message from Discussion
+     */
+    function onDeleteItem(id){
+        console.log(id);
+    }
+
     /**
      * Create Form entry for Forum and Discussion
      */
     return (
         <div>
-            <h1 className="max-w-sm mx-auto" >Forum & Discussion</h1>
+            <h1 className="max-w-sm mx-auto abc" >Forum & Discussion</h1>
 
             <form className="max-w-sm mx-auto" method="post">
                 <div className="mb-5">
@@ -60,6 +84,27 @@ const Forum = function() {
                 <button type="submit" class="text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">submit</button>
 
             </form>
+        
+
+            <div>
+            
+                <h1 className="abc">Discussion</h1>
+                <br></br>   
+                {
+                    datas.map(item => (
+                    <div className="border-4">
+                        <h1>name: {item.name}</h1>
+                        <h2>email: {item.email}</h2>
+                        <p>message: {item.message}</p>
+                        <p>id: {item._id}</p>
+                        <br></br>
+                        <button className="btn" onClick={() => {onDeleteItem(item._id)}}> DEL </button>
+                    </div>
+                    ))
+                }
+            </div>
+
+        
         </div>
         
     );
