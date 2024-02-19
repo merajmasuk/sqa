@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: Forum.jsx</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: Forum.jsx</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import { useEffect, useState } from "react";
+import './Forum.css';
+
+const Forum = function() {
+    
+    /**
+     * set useState to keep record of name email message
+     */
+    const [name, setName] = useState("");
+    const [email, setEmail] = useState("");
+    const [message, setMessage] = useState("");
+    const [datas, setDatas] = useState([]);
+
+    /***
+     * Fetch Data from REST API
+     */
+    useEffect(function () {
+        fetch('http://localhost:5000/api/v1/getForum')
+        .then(function (res) {
+            return res.json();
+        }).then(function (data) {
+            console.log(data.data);
+            setDatas(data.data);
+        });
+    }, []);
+
+
+    /**
+     * keep track of name field in the form
+     * 
+     * @param {*} event 
+     */
+    function handleChangeName(event) {
+        setName(event.target.value);
+        console.log(name);
+    }
+
+    /**
+     * keep track of email field in the form
+     * @param  event 
+     */
+    function handleChangeEmail(event) {
+        setEmail(event.target.value);
+        console.log(email);
+    }
+
+    /**
+     * Keep track of typing message
+     *
+     * @param {*} event  
+     */
+    function handleChangeMessage(event) {
+        setMessage(event.target.value);
+        console.log(message);
+    }
+
+    /**
+     * Send form input data to post api
+     */
+    function sendData()
+    {
+        console.log(JSON.stringify({
+            name: name,
+            email: email,
+            message: message,
+        }));
+
+        fetch(`http://localhost:5000/api/v1/setForum`, {
+            method: "POST",
+            body: JSON.stringify({
+                name: name,
+                email: email,
+                message: message,
+            }),
+            headers: { 'Content-Type': 'application/json' }   
+        }).then(response => response.json());
+        ; 
+
+         window.location.reload();
+    }
+
+
+    /***
+     * Delete a specific message from Discussion
+     */
+    function onDeleteItem(id){
+        console.log(id);
+        fetch(`http://localhost:5000/api/v1/deleteForum/${id}`, {
+                method: "DELETE",
+        }).then(response => response.json());
+        window.location.reload();
+    }
+
+    
+
+    /**
+     * Create Form entry for Forum and Discussion
+     */
+    return (
+        &lt;div>
+            &lt;h1 className="max-w-sm mx-auto abc" >Forum &amp; Discussion&lt;/h1>
+
+            &lt;form className="max-w-sm mx-auto" method="post">
+                &lt;div className="mb-5">
+                    &lt;label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your name&lt;/label>
+                    &lt;input type="text" id="name" value={name} onChange={handleChangeName} class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Abdul Mukit" required />
+
+                &lt;/div>
+
+                &lt;div class="mb-5">
+                    &lt;label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your email&lt;/label>
+                    &lt;input type="email" id="email" value={email} onChange={handleChangeEmail}  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="abc@gmail.com" required />
+                &lt;/div>
+
+                &lt;div class="mb-5">
+                    &lt;label for="message" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your message&lt;/label>
+                    &lt;textarea type="text" id="message" rows={5} value={message} onChange={handleChangeMessage} class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Hello there" required />
+                &lt;/div>
+                &lt;button type="button" onClick={sendData} class="text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">submit&lt;/button>
+
+            &lt;/form>
+        
+
+            &lt;div>
+            
+                &lt;h1 className="abc">Discussion&lt;/h1>
+                &lt;br>&lt;/br>   
+                {
+                    datas.map(item => (
+                    &lt;div className="border-4">
+                        &lt;h1>name: {item.name}&lt;/h1>
+                        &lt;h2>email: {item.email}&lt;/h2>
+                        &lt;p>message: {item.message}&lt;/p>
+                        &lt;br>&lt;/br>
+                        &lt;button className="btn" onClick={() => {onDeleteItem(item._id)}}> DEL &lt;/button>
+                    &lt;/div>
+                    ))
+                }
+            &lt;/div>
+
+        
+        &lt;/div>
+        
+    );
+}
+
+export default Forum;</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.2</a> on Mon Feb 19 2024 11:41:41 GMT+0600 (Bangladesh Standard Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

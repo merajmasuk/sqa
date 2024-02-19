@@ -1,0 +1,20 @@
+{
+    "plugins": [
+      "node_modules/jsdoc-babel"
+    ],
+    "source": {
+      "include": ["./src"],
+      "exclude": ["./node_modules", "./test"]
+    },
+    "babel": {
+      "presets": ["@babel/preset-env", "@babel/preset-react"]
+    },
+    "tags": {
+      "allowUnknownTags": true
+    },
+    "opts": {
+      "recurse": true,
+      "destination": "./docs"
+    }
+  }
+  
