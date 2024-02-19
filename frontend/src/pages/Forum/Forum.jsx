@@ -25,8 +25,10 @@ const Forum = function() {
     }, []);
 
 
-    /***
-     * keep track of name
+    /**
+     * keep track of name field in the form
+     * 
+     * @param {*} event 
      */
     function handleChangeName(event) {
         setName(event.target.value);
@@ -34,7 +36,7 @@ const Forum = function() {
     }
 
     /**
-     * keep track of email
+     * keep track of email field in the form
      * @param  event 
      */
     function handleChangeEmail(event) {
@@ -42,8 +44,10 @@ const Forum = function() {
         console.log(email);
     }
 
-    /***
+    /**
      * Keep track of typing message
+     *
+     * @param {*} event  
      */
     function handleChangeMessage(event) {
         setMessage(event.target.value);
@@ -51,7 +55,7 @@ const Forum = function() {
     }
 
     /**
-     * Form data to API Post method
+     * Send form input data to post api
      */
     function sendData()
     {
