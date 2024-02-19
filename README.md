@@ -1,4 +1,5 @@
 # Course Management System
+
 Project for SQA (Software Quality Assurance) Course
 
 ## Table of Contents
@@ -24,14 +25,15 @@ Project for SQA (Software Quality Assurance) Course
 #### Tech Stack
 
 # Tech Stack
+
 MERN (MongoDB, ExpressJS, ReactJS, NodeJS
 
 Fontend: ReactJS
 Backend: NodeJS + ExpressJS
 Database: MongoDB
 
-
 # How to run
+
 ## Prerequisites
 
 Before you begin, ensure you have met the following requirements:
@@ -41,6 +43,7 @@ Before you begin, ensure you have met the following requirements:
 
 
 ## Dependencies
+
 Install package dependencis required for the app by entering `npm install`. This have to be entered inside frontend and backend directory each.
 
 ```
@@ -57,14 +60,17 @@ Clone the repository:
 
 
 ## Build & Run
+
 After installing necessary dependencies, start the app by running the nodemon service.
 
 On backend directory,
+
 ```
 npm start
 ```
 
 On frontend directory,
+
 ```
 npm run dev
 ```
