@@ -76,4 +76,3 @@ These instructions will help you set up and run the project on your local machin
    cd out
    # open user.controller.js click mouse right click and "open with Live server" button.
    ```
-
