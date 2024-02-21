@@ -1,0 +1,7 @@
+port=5000
+DbUserName=summer-school-site
+DbPassword=8zCDlFYQCcluSQ7M
+ACCESS_TOKEN=6bb5a74f2c2ad905f90d721c1b9def672fc53622532530057f24d08a64e791e4d8f56453dfe8c2d249711a098c6a860ef8bf75ecd4db2a87da11abd5610c5256
+SMTP_USERNAME=mdraselislam1944@gmail.com
+SMTP_PASSWORD=tcplrvdfyaknssnk
+CLIENT_URL=http://localhost:5173/
