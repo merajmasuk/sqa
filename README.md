@@ -71,7 +71,6 @@ npm run dev
 
 **NOTE:** The backend requires a special `.env` file to run properly, this contains various secret keys, database authentications etc. For security this has been exempted from the github repository. Please contact one of the repository maintainers for the access.
 
-
 ### Testing
 
 2. For testing, enter the following command:
