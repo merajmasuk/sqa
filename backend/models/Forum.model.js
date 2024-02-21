@@ -1,4 +1,7 @@
 const mongoose=require("mongoose");
+/**
+ * MongoDB Collections model schema
+ */
 const forumSchema=new mongoose.Schema({
     name:{
         type:String,

@@ -1,5 +1,10 @@
 const forumSchema=require("../models/Forum.model");
-
+/**
+ * Function for API POST functionality
+ * 
+ * @param {*} req handling incoming request
+ * @param {*} res sending response to client
+ */
 const setForum=async(req,res)=>{
     const data=req.body;
     try{
@@ -11,6 +16,12 @@ const setForum=async(req,res)=>{
     }
 }
 
+/**
+ * Function for API GET functionality
+ * 
+ * @param {*} req haldle incoming request
+ * @param {*} res sending response to client
+ */
 const getForum=async(req,res)=>{
     try{
         const result=await forumSchema.find();
@@ -20,6 +31,12 @@ const getForum=async(req,res)=>{
     }
 }
 
+/**
+ * API PUT functionality
+ * 
+ * @param {*} req haldle incoming request
+ * @param {*} res sending response to client
+ */
 const updateForum=async(req,res)=>{
     const data=req.body;
     try{
@@ -33,6 +50,13 @@ const updateForum=async(req,res)=>{
         res.status(200).json({ statusCode: 2,message:error.message, status: "unsuccess", data: null });
     }
 }
+
+/**
+ * API DELETE functionality
+ * 
+ * @param {*} req haldle incoming request
+ * @param {*} res sending response to client 
+ */
 const deleteForum=async(req,res)=>{
     const id=req.params.id;
     try{
