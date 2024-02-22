@@ -80,3 +80,7 @@ open Forum.jsx.html in browser
 cd backend
 npm test
 ```
+
+### CICD
+
+Use ngrok for online jenkins payload
