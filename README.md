@@ -83,9 +83,27 @@ npm run dev
 
 3. user management testing:
 
-   ```bash
+```
+cd .\frontend\src\pages\Forum\out\
+```
+
+backend: 
+```bash
    cd backend
    cd controllers
    cd out
    # open user.controller.js click mouse right click and "open with Live server" button.
-   ```
+```
+
+open Forum.jsx.html in browser
+
+### Unit test
+
+```
+cd backend
+npm test
+```
+
+### CICD
+
+Use ngrok for online jenkins payload
