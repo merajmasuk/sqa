@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "nodemon index.js",
-    "test": "npx jest --detectOpenHandles"
+    "test": "npx jest --detectOpenHandles --forceExit"
   },
   "keywords": [],
   "author": "",
