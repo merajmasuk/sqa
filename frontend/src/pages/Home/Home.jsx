@@ -1,3 +1,4 @@
+
 import image from "./../../assets/Online-courses.jpg"
 const Home = () => {
     return (

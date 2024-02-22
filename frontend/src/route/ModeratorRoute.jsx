@@ -1,12 +1,12 @@
 import { Navigate, useLocation } from "react-router";
 // eslint-disable-next-line react/prop-types
-const PrivateRoute = ({children}) => {
+const ModeratorRoute = ({children}) => {
     const userInfo=JSON.parse(localStorage.getItem('userInfo'));
     const location = useLocation();
-    if(userInfo){
+    if(userInfo.role=='moderator'){
         return children;
     }
-    return <Navigate to={"/login"} state={{from: location}} replace></Navigate>
+    return <Navigate to={"/"} state={{from: location}} replace></Navigate>
 };
 
-export default PrivateRoute;
+export default ModeratorRoute;
