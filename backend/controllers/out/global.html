@@ -104,7 +104,8 @@
     
 
     
-    <h4 class="name" id="deleteForum"><span class="type-signature">(async) </span>deleteForum<span class="signature">(req, res)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="forgetPassword"><span class="type-signature">(async) </span>forgetPassword<span class="signature">(req, res)</span><span class="type-signature"> &rarr; {void}</span></h4>
+
     
 
     
@@ -112,7 +113,7 @@
 
 
 <div class="description">
-    API DELETE functionality
+    Update user password using the forget password mechanism.
 </div>
 
 
@@ -154,7 +155,7 @@
             <td class="type">
             
                 
-<span class="param-type">*</span>
+<span class="param-type">Object</span>
 
 
             
@@ -164,7 +165,7 @@
 
             
 
-            <td class="description last">haldle incoming request</td>
+            <td class="description last">Express request object.</td>
         </tr>
 
     
@@ -177,7 +178,7 @@
             <td class="type">
             
                 
-<span class="param-type">*</span>
+<span class="param-type">Object</span>
 
 
             
@@ -187,7 +188,7 @@
 
             
 
-            <td class="description last">sending response to client</td>
+            <td class="description last">Express response object.</td>
         </tr>
 
     
@@ -228,7 +229,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="forum.controller.js.html">forum.controller.js</a>, <a href="forum.controller.js.html#line60">line 60</a>
+        <a href="user.controller.js.html">user.controller.js</a>, <a href="user.controller.js.html#line111">line 111</a>
     </li></ul></dd>
     
 
@@ -253,6 +254,24 @@
 
 
 
+<h5>Returns:</h5>
+
+        
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">void</span>
+
+
+    </dd>
+</dl>
+
+    
 
 
 
@@ -264,15 +283,14 @@
     
 
     
-    <h4 class="name" id="getForum"><span class="type-signature">(async) </span>getForum<span class="signature">(req, res)</span><span class="type-signature"></span></h4>
-    
+    <h4 class="name" id="getUser"><span class="type-signature">(async) </span>getUser<span class="signature">(req, res)</span><span class="type-signature"> &rarr; {void}</span></h4>
 
     
 
 
 
 <div class="description">
-    Function for API GET functionality
+    Get user data from the database based on login information.
 </div>
 
 
@@ -314,7 +332,7 @@
             <td class="type">
             
                 
-<span class="param-type">*</span>
+<span class="param-type">Object</span>
 
 
             
@@ -324,7 +342,7 @@
 
             
 
-            <td class="description last">haldle incoming request</td>
+            <td class="description last">Express request object.</td>
         </tr>
 
     
@@ -337,7 +355,7 @@
             <td class="type">
             
                 
-<span class="param-type">*</span>
+<span class="param-type">Object</span>
 
 
             
@@ -347,7 +365,7 @@
 
             
 
-            <td class="description last">sending response to client</td>
+            <td class="description last">Express response object.</td>
         </tr>
 
     
@@ -388,7 +406,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="forum.controller.js.html">forum.controller.js</a>, <a href="forum.controller.js.html#line25">line 25</a>
+        <a href="user.controller.js.html">user.controller.js</a>, <a href="user.controller.js.html#line66">line 66</a>
     </li></ul></dd>
     
 
@@ -413,6 +431,24 @@
 
 
 
+<h5>Returns:</h5>
+
+        
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">void</span>
+
+
+    </dd>
+</dl>
+
+    
 
 
 
@@ -424,7 +460,7 @@
     
 
     
-    <h4 class="name" id="setForum"><span class="type-signature">(async) </span>setForum<span class="signature">(req, res)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="resetPassword"><span class="type-signature">(async) </span>resetPassword<span class="signature">(req, res)</span><span class="type-signature"> &rarr; {void}</span></h4>
     
 
     
@@ -432,7 +468,7 @@
 
 
 <div class="description">
-    Function for API POST functionality
+    Reset user password based on provided information.
 </div>
 
 
@@ -474,7 +510,7 @@
             <td class="type">
             
                 
-<span class="param-type">*</span>
+<span class="param-type">Object</span>
 
 
             
@@ -484,7 +520,7 @@
 
             
 
-            <td class="description last">handling incoming request</td>
+            <td class="description last">Express request object.</td>
         </tr>
 
     
@@ -497,7 +533,7 @@
             <td class="type">
             
                 
-<span class="param-type">*</span>
+<span class="param-type">Object</span>
 
 
             
@@ -507,7 +543,7 @@
 
             
 
-            <td class="description last">sending response to client</td>
+            <td class="description last">Express response object.</td>
         </tr>
 
     
@@ -548,7 +584,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="forum.controller.js.html">forum.controller.js</a>, <a href="forum.controller.js.html#line8">line 8</a>
+        <a href="user.controller.js.html">user.controller.js</a>, <a href="user.controller.js.html#line166">line 166</a>
     </li></ul></dd>
     
 
@@ -573,6 +609,24 @@
 
 
 
+<h5>Returns:</h5>
+
+        
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">void</span>
+
+
+    </dd>
+</dl>
+
+    
 
 
 
@@ -584,7 +638,7 @@
     
 
     
-    <h4 class="name" id="updateForum"><span class="type-signature">(async) </span>updateForum<span class="signature">(req, res)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="setUser"><span class="type-signature">(async) </span>setUser<span class="signature">(req, res)</span><span class="type-signature"> &rarr; {void}</span></h4>
     
 
     
@@ -592,7 +646,7 @@
 
 
 <div class="description">
-    API PUT functionality
+    Set user data in the database.
 </div>
 
 
@@ -634,7 +688,7 @@
             <td class="type">
             
                 
-<span class="param-type">*</span>
+<span class="param-type">Object</span>
 
 
             
@@ -644,7 +698,7 @@
 
             
 
-            <td class="description last">haldle incoming request</td>
+            <td class="description last">Express request object.</td>
         </tr>
 
     
@@ -657,7 +711,7 @@
             <td class="type">
             
                 
-<span class="param-type">*</span>
+<span class="param-type">Object</span>
 
 
             
@@ -667,7 +721,7 @@
 
             
 
-            <td class="description last">sending response to client</td>
+            <td class="description last">Express response object.</td>
         </tr>
 
     
@@ -708,7 +762,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="forum.controller.js.html">forum.controller.js</a>, <a href="forum.controller.js.html#line40">line 40</a>
+        <a href="user.controller.js.html">user.controller.js</a>, <a href="user.controller.js.html#line12">line 12</a>
     </li></ul></dd>
     
 
@@ -733,6 +787,24 @@
 
 
 
+<h5>Returns:</h5>
+
+        
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">void</span>
+
+
+    </dd>
+</dl>
+
+    
 
 
 
@@ -754,13 +826,13 @@
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#deleteForum">deleteForum</a></li><li><a href="global.html#getForum">getForum</a></li><li><a href="global.html#setForum">setForum</a></li><li><a href="global.html#updateForum">updateForum</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#forgetPassword">forgetPassword</a></li><li><a href="global.html#getUser">getUser</a></li><li><a href="global.html#resetPassword">resetPassword</a></li><li><a href="global.html#setUser">setUser</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.2</a> on Wed Feb 21 2024 19:40:42 GMT+0600 (Bangladesh Standard Time)
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.2</a> on Thu Feb 15 2024 23:57:28 GMT+0600 (Bangladesh Standard Time)
 </footer>
 
 <script> prettyPrint(); </script>
