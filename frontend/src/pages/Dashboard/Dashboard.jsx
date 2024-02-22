@@ -12,19 +12,19 @@ import axios from "axios";
 import profile from "../../assets/professional.jpg";
 const Dashboard = () => {
     const [status, setStatus] = useState(false);
-    const [adminStatus,setAdminStatus]=useState(true);
+    const [adminStatus, setAdminStatus] = useState(true);
     const navigate = useNavigate();
-    useEffect(() => {
-    }, [])
 
-    useEffect(()=>{
-        axios.get(`https://crowd-founding-new-server-site.vercel.app/api/authentication/admin/mdraselislam1944@gmail.com`,{
-            headers:{
+    const userInfo = JSON.parse(localStorage.getItem('userInfo'));
+
+    useEffect(() => {
+        axios.get(`https://crowd-founding-new-server-site.vercel.app/api/authentication/admin/mdraselislam1944@gmail.com`, {
+            headers: {
                 Authorization: `bearer ${localStorage.getItem('set-token-for-user')}`
             }
         })
-        .then(res=>setAdminStatus(res.data.admin));
-    },[]);
+            .then(res => setAdminStatus(res.data.admin));
+    }, []);
 
     if (status) {
         localStorage.removeItem('set-token-for-user');
