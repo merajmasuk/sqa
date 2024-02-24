@@ -76,7 +76,6 @@ const getUser = async (req, res) => {
      * @returns {void}
      * @throws {Error} If there is an issue with retrieving the user data.
      */
-    
     const data = req.body;
     try {
         // Find the user with the provided email
@@ -86,11 +85,19 @@ const getUser = async (req, res) => {
             return res.status(404).json({ statusCode: 2, message: "Invalid user", status: "unsuccess", data: null });
         }
 
+        const userInfo={
+            email:result1.email,
+            mobile:result1.mobile,
+            name:result1.name,
+            role:result1.role,
+            _id:result1._id
+        }
         // Compare the provided password with the hashed password in the database
         bcrypt.compare(data.password, result1.password, async function (err, result) {
             if (result) {
+
                 // Return success response with the retrieved user data
-                return res.status(200).json({ statusCode: 1, message: "Data retrieved successfully.", status: "success", data: result1 });
+                return res.status(200).json({ statusCode: 1, message: "Data retrieved successfully.", status: "success", data: userInfo });
             }
 
             // Return 400 if the password is incorrect

@@ -17,6 +17,9 @@ import Admin from "./pages/Dashboard/Admin";
 import Revenue from "./pages/Dashboard/Revenue";
 import PrivateRoute from "./route/PrivateRoute";
 import ResetPassword from "./pages/ResetPassword/ResetPassword";
+import AdminRoute from "./route/AdminRoute";
+import ModeratorRoute from "./route/ModeratorRoute";
+import Practice from "./pages/Practice/Practice";
 
 const App = createBrowserRouter([
   {
@@ -34,15 +37,15 @@ const App = createBrowserRouter([
       },
       {
         path: "eventEntry",
-        element: <EventEntry />
+        element: <PrivateRoute><EventEntry /></PrivateRoute>
       },
       {
         path: "sponsorEntry",
-        element: <EventSponsorEntry />
+        element: <PrivateRoute><ModeratorRoute><EventSponsorEntry/></ModeratorRoute></PrivateRoute>
       },
       {
         path: "eventCommitteeEntry",
-        element: <EventCommitteeEntry />
+        element:<PrivateRoute><AdminRoute><EventCommitteeEntry /></AdminRoute></PrivateRoute> 
       },
       {
         path: "login",
@@ -54,7 +57,7 @@ const App = createBrowserRouter([
       },
       {
         path: "discussion",
-        element: <Discussion />
+        element: <PrivateRoute><AdminRoute><Discussion/></AdminRoute></PrivateRoute>
       },
       {
         path: "forgetPassword",
@@ -71,12 +74,36 @@ const App = createBrowserRouter([
       {
         path: "resetPassword",
         element:<PrivateRoute><ResetPassword /></PrivateRoute> 
+      },
+      {
+        path:"practice",
+        element:<PrivateRoute><AdminRoute><Practice/></AdminRoute></PrivateRoute>
+      },
+      {
+        path: "forum",
+        element: <Forum />
+      },
+      {
+        path: "payment",
+        element: <Payment />
+      },
+      {
+        path: "resetPassword",
+        element:<PrivateRoute><ResetPassword /></PrivateRoute> 
+      },
+      {
+        path: "resetPassword",
+        element:<PrivateRoute><ResetPassword /></PrivateRoute> 
+      },
+      {
+        path:"practice",
+        element:<PrivateRoute><AdminRoute><Practice/></AdminRoute></PrivateRoute>
       }
     ]
   },
   {
     path: "/dashboard",
-    element:<Dashboard></Dashboard>,
+    element:<PrivateRoute><Dashboard/></PrivateRoute>,
     children:[
       {
         path:"/dashboard",
