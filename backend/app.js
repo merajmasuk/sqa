@@ -42,9 +42,7 @@ app.use("/api/v1",userRoute);
 const forumRoute=require("./routes/forum.route");
 app.use("/api/v1",forumRoute);
 
-//curriculum route
-const curriculumRoute=require("./routes/curriculum.route");
-app.use("/api/v1",curriculumRoute);
+
 
 //assesment route
 const assesmentRoute=require("./routes/assesment.route");
@@ -88,34 +86,6 @@ app.use("/api/v1",assessmentRoute);
 const curriculumRoute=require("./routes/curriculum.route");
 app.use("/api/v1",curriculumRoute);
 
-//assesment route
-const assesmentRoute=require("./routes/assesment.route");
-app.use("/api/v1",assesmentRoute);
-
-
-//platform route
-const platformRoute=require("./routes/platform.route");
-app.use("/api/v1",platformRoute);
-
-
-//Instructor route
-const instructorRoute=require("./routes/instructor.route");
-app.use("/api/v1",instructorRoute);
-
-
-//assesmentevaluation route
-const assesmentevaluationRoute=require("./routes/assesmentevaluation.route");
-app.use("/api/v1",assesmentevaluationRoute);
-
-
-//maintenanceupdates
-const maintenanceupdatesRoute=require("./routes/maintenanceupdates.route");
-app.use("/api/v1",maintenanceupdatesRoute);
-
-
-//closure_reflection
-const coursereflectionModel = require('./models/coursereflection.model');
-app.use("/api/v1",coursereflectionModel);
 
 app.get("/", (req, res) => {
     res.sendFile(__dirname + "/views/index.html");
