@@ -233,4 +233,18 @@ const resetPassword = async (req, res) => {
     }
 };
 
-module.exports = { setUser, getUser, forgetPassword, resetPassword };
+const getAllUsers = async(req,res) =>{
+    try{
+        const users = await userSchema.find()
+        if(!users){
+            return res.status(400).json("Not found")
+        }
+        return res.status(200).json(users)
+
+    }
+    catch(error){
+        return res.status(500).json(error.message)
+    }
+}
+
+module.exports = { setUser, getUser, forgetPassword, resetPassword,getAllUsers };

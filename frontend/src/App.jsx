@@ -20,6 +20,7 @@ import ResetPassword from "./pages/ResetPassword/ResetPassword";
 import AdminRoute from "./route/AdminRoute";
 import ModeratorRoute from "./route/ModeratorRoute";
 import Practice from "./pages/Practice/Practice";
+import AllUser from "./pages/AllUsers/AllUsers";
 
 const App = createBrowserRouter([
   {
@@ -112,6 +113,10 @@ const App = createBrowserRouter([
       {
         path: "revenue",
         element:<Revenue/>
+      },
+      {
+        path: "allUser",
+        element:<AllUser/>
       },
     ]
   }
