@@ -18,7 +18,7 @@
     "react-icons": "^5.0.1",
     "react-router-dom": "^6.21.3",
     "recharts": "^2.12.0",
-    "sort-by": "^1.2.0"
+    "sort-by": "^0.0.2"
   },
   "devDependencies": {
     "@types/react": "^18.2.43",
