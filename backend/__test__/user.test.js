@@ -16,7 +16,7 @@ describe('user', () => {
         it('should return a 200 for valid login information', async () => {
             const validUserInfo = {
                 email: "mdraselislam1944@gmail.com",
-                password: "12345",
+                password: "1234",
             }
             await supertest(app)
                 .post("/api/v1/getUser") 
