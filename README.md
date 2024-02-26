@@ -24,7 +24,7 @@ Project for SQA (Software Quality Assurance) Course
 #### Tech Stack
 
 # Tech Stack
-MERN (MongoDB, ExpressJS, ReactJS, NodeJS
+MERN (MongoDB, ExpressJS, ReactJS, NodeJS)
 
 Fontend: ReactJS
 Backend: NodeJS + ExpressJS
@@ -54,6 +54,7 @@ Clone the repository:
 
    ```bash
    git clone https://github.com/merajmasuk/sqa.git
+   ```
 
 
 ## Build & Run
@@ -81,21 +82,17 @@ npm run dev
 
 ### JSdoc
 
-3. user management testing:
+3. Frontend:
 
 ```
-cd .\frontend\src\pages\Forum\out\
+cd frontend/src/pages/<page>/out
 ```
 
 backend: 
 ```bash
-   cd backend
-   cd controllers
-   cd out
+   cd backend/controllers/out
    # open user.controller.js click mouse right click and "open with Live server" button.
 ```
-
-open Forum.jsx.html in browser
 
 ### Unit test
 
@@ -105,5 +102,4 @@ npm test
 ```
 
 ### CICD
-
 Use ngrok for online jenkins payload
