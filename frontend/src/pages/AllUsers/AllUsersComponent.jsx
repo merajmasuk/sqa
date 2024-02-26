@@ -1,7 +1,20 @@
 import axios from "axios";
 import React from 'react'
+import configUrl from "../../config/config";
+
 
 const AllUserComponent =({user})=>{
+
+  const handleOnclick=(id)=>{
+    axios.put(`${configUrl.BASEURL}/api/v1/updateUser/${id}`,{
+     role:"admin"
+    })
+    .then(result => {
+      alert("user role changed")
+      window.location.reload        
+     })
+
+  }
     return(
         <body>
 
@@ -18,13 +31,15 @@ const AllUserComponent =({user})=>{
         <p class="">
         Name : {user.mobile}
         </p>
+        <p>
+          Role: {user.role}
+        </p>
       </div>
       <div class="px-6 pt-4 pb-2">
-        <button class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">Update</button>
+        <button onClick={()=>handleOnclick(user._id)}class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">Make Admin</button>
       </div>
     </div>
   </div>
-
 </body>
     )
 }

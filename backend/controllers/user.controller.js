@@ -247,4 +247,37 @@ const getAllUsers = async(req,res) =>{
     }
 }
 
-module.exports = { setUser, getUser, forgetPassword, resetPassword,getAllUsers };
+/**
+ * Updates user information in the database.
+ * @async
+ * @param {Object} req - Express request object.
+ * @param {Object} res - Express response object.
+ * @returns {Promise<void>} - A promise that resolves once the update operation is completed.
+ */
+
+const updateUser =async(req,res)=>{
+    // Extract user ID from request parameters
+    const id = req.params.id
+    // Extract user data from request body
+    const data = req.body;
+
+    try {
+        // Attempt to update user information in the database
+        const result = await userSchema.findOneAndUpdate(
+            {_id:id},
+            data,
+            {upsert:true}
+        );
+        res.status(200).json(result)
+    } catch (error) {
+        // If an error occurs, respond with status code 500 and error message
+        res.status(500).json({
+            statusCode: 2,
+            message: error.message,
+            status: "unsuccess",
+            data: null
+        });
+    }
+}
+
+module.exports = { setUser, getUser, forgetPassword, resetPassword,getAllUsers,updateUser };
