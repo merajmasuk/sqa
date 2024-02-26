@@ -44,35 +44,6 @@ app.use("/api/v1",forumRoute);
 
 
 
-//assesment route
-const assesmentRoute=require("./routes/assesment.route");
-app.use("/api/v1",assesmentRoute);
-
-
-//platform route
-const platformRoute=require("./routes/platform.route");
-app.use("/api/v1",platformRoute);
-
-
-//Instructor route
-const instructorRoute=require("./routes/instructor.route");
-app.use("/api/v1",instructorRoute);
-
-
-//assesmentevaluation route
-const assesmentevaluationRoute=require("./routes/assesmentevaluation.route");
-app.use("/api/v1",assesmentevaluationRoute);
-
-
-//maintenanceupdates
-const maintenanceupdatesRoute=require("./routes/maintenanceupdates.route");
-app.use("/api/v1",maintenanceupdatesRoute);
-
-
-//closure_reflection
-const coursereflectionModel = require('./models/coursereflection.model');
-app.use("/api/v1",coursereflectionModel);
-
 //subject course
 const subjectCourseRoute=require("./routes/subjectCourse.route");
 app.use("/api/v1",subjectCourseRoute);
@@ -85,6 +56,37 @@ app.use("/api/v1",assessmentRoute);
 //curriculum route
 const curriculumRoute=require("./routes/curriculum.route");
 app.use("/api/v1",curriculumRoute);
+
+//platform route
+const platformRoute=require("./routes/platform.route");
+app.use("/api/v1",platformRoute);
+
+//courses route
+const coursesRoute=require("./routes/courses.route");
+app.use("/api/v1",coursesRoute);
+
+
+
+
+//assesmentevaluation route
+const assesmentevaluationRoute=require("./routes/assesmentevaluation.route");
+app.use("/api/v1",assesmentevaluationRoute);
+
+//instructors route
+const instructorsRoute=require("./routes/instructors.route");
+app.use("/api/v1",instructorsRoute);
+
+
+//maintenanceupdates
+const maintenanceupdatesRoute=require("./routes/maintenanceupdates.route");
+app.use("/api/v1",maintenanceupdatesRoute);
+
+
+//closure_reflection
+const coursereflectionModel = require('./models/coursereflection.model');
+app.use("/api/v1",coursereflectionModel);
+
+
 
 
 app.get("/", (req, res) => {

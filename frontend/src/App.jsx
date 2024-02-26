@@ -21,6 +21,10 @@ import AdminRoute from "./route/AdminRoute";
 import ModeratorRoute from "./route/ModeratorRoute";
 import Practice from "./pages/Practice/Practice";
 
+import Example from "./pages/Example/Example";
+import CoursesEntry from "./pages/Enrollment/CoursesEntry";
+
+
 const App = createBrowserRouter([
   {
     path: "/",
@@ -98,6 +102,14 @@ const App = createBrowserRouter([
       {
         path:"practice",
         element:<PrivateRoute><AdminRoute><Practice/></AdminRoute></PrivateRoute>
+      },
+      {
+        path:"Example",
+        element:<Example/>
+      },
+      {
+        path:"CoursesEntry",
+        element:<CoursesEntry/>
       }
     ]
   },

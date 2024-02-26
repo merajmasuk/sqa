@@ -92,12 +92,14 @@ const getUser = async (req, res) => {
             role: result1.role,
             _id: result1._id
         }
+
         // Compare the provided password with the hashed password in the database
         bcrypt.compare(data.password, result1.password, async function (err, result) {
             if (result) {
+
                 const token = jwt.sign(userInfo, process.env.ACCESS_TOKEN, { expiresIn: '1h' });
                 // Return success response with the retrieved user data
-                return res.status(200).json({ statusCode: 1, message: "Data retrieved successfully.", status: "success", data: userInfo,token:token });
+                return res.status(200).json({ statusCode: 1, message: "Data retrieved successfully.", status: "success", data: userInfo, token:token });
             }
 
             // Return 400 if the password is incorrect
