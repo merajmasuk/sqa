@@ -44,18 +44,12 @@ app.use("/api/v1",forumRoute);
 
 
 
-//subject course
-const subjectCourseRoute=require("./routes/subjectCourse.route");
-app.use("/api/v1",subjectCourseRoute);
-
 
 //assessment route
 const assessmentRoute=require("./routes/assessment.route");
 app.use("/api/v1",assessmentRoute);
 
-//curriculum route
-const curriculumRoute=require("./routes/curriculum.route");
-app.use("/api/v1",curriculumRoute);
+
 
 //platform route
 const platformRoute=require("./routes/platform.route");
@@ -86,7 +80,15 @@ app.use("/api/v1",maintenanceupdatesRoute);
 const coursereflectionModel = require('./models/coursereflection.model');
 app.use("/api/v1",coursereflectionModel);
 
+//subject course
+const subjectCourseRoute=require("./routes/subjectCourse.route");
+app.use("/api/v1",subjectCourseRoute);
 
+
+
+//curriculum route
+const curriculumRoute=require("./routes/curriculum.route");
+app.use("/api/v1",curriculumRoute);
 
 
 app.get("/", (req, res) => {

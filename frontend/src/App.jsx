@@ -20,6 +20,7 @@ import ResetPassword from "./pages/ResetPassword/ResetPassword";
 import AdminRoute from "./route/AdminRoute";
 import ModeratorRoute from "./route/ModeratorRoute";
 import Practice from "./pages/Practice/Practice";
+import AllUser from "./pages/AllUsers/AllUsers";
 
 import Example from "./pages/Example/Example";
 import CoursesEntry from "./pages/Enrollment/CoursesEntry";
@@ -41,7 +42,7 @@ const App = createBrowserRouter([
       },
       {
         path: "eventEntry",
-        element: <PrivateRoute><EventEntry /></PrivateRoute>
+        element: <PrivateRoute><PrivateRoute><EventEntry /></PrivateRoute></PrivateRoute>
       },
       {
         path: "sponsorEntry",
@@ -124,6 +125,10 @@ const App = createBrowserRouter([
       {
         path: "revenue",
         element:<Revenue/>
+      },
+      {
+        path: "allUser",
+        element:<AllUser/>
       },
     ]
   }
