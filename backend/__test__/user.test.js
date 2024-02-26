@@ -3,7 +3,7 @@ const app = require("../app");
 
 describe('user', () => {
     describe('GET a user with valid login information', () => {
-        it('should return a 404 for an unknown email', async () => {
+        it('should return a 400 for an unknown email', async () => {
             const userInfo = {
                 email: "mdraselislam19424@gmail.com",
                 password: "1234",
@@ -16,7 +16,7 @@ describe('user', () => {
         it('should return a 200 for valid login information', async () => {
             const validUserInfo = {
                 email: "mdraselislam1944@gmail.com",
-                password: "12345",
+                password: "1234",
             }
             await supertest(app)
                 .post("/api/v1/getUser") 

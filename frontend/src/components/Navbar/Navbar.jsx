@@ -9,6 +9,7 @@ const Navbar = () => {
 
     const handleLogOut = async () => {
         setLoading(true);
+        localStorage.removeItem('access-token');
         localStorage.removeItem('userInfo');
         window.location.reload();
         setLoading(false);
