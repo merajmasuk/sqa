@@ -1,54 +1,46 @@
 const mongoose = require("mongoose");
+
 const committeeSchema = new mongoose.Schema({
     id: {
         type: String,
-        // unique: true,
+         unique: true, // Depending on your requirements
     },
-    comm_group_slug: {
+    committeeName: {
         type: String,
     },
-    serial_no: {
+    committeeYear: {
         type: String,
     },
-    PIMS_ID: {
+    committeeDetail: {
         type: String,
     },
-    BPSA_Designation_id: {
-        type: String,
-    },
-    Name: {
-        type: String,
-    },
-    medal: {
-        type: String,
-    },
-    photo: {
-        type: String,
-    },
-    Officail_Designation:{
-        type: String,
-    },
-    Mobile_Number: {
-        type: String,
-    },
-    Association_Year: {
-        type: String,
+    committeeDesignation: {
+        type: [
+            {
+                name: {
+                    type: String,
+                },
+                designation: {
+                    type: String // Typo fixed here
+                }
+            }
+        ]
     },
     AddedBy: {
         type: String,
-        default:"admin"
+        default: "admin"
     },
     status: {
         type: Boolean,
-        default:true,
+        default: true,
     },
     user: {
         type: String,
-        default:"admin"
+        default: "admin"
     },
 }, {
     timestamps: true,
-})
+});
 
 committeeSchema.pre('save', async function (next) {
     const doc = this;
@@ -58,13 +50,12 @@ committeeSchema.pre('save', async function (next) {
 
     try {
         const lastDoc = await mongoose.model('committee').findOne({}, {}, { sort: { 'id': -1 } });
-        const lastId = lastDoc ? lastDoc.id : 0;
-        doc.id = lastId + 1;
+        const lastId = lastDoc ? parseInt(lastDoc.id) : 0; // Parse the ID as integer
+        doc.id = (lastId + 1).toString(); // Ensure ID is a string
         next();
     } catch (error) {
         return next(error);
     }
 });
-
 
 module.exports = mongoose.model("committee", committeeSchema);

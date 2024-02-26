@@ -2,7 +2,7 @@ require('dotenv').config();
 const express = require('express');
 const authenticationRouter = express.Router();
 const jwt = require('jsonwebtoken');
-const User = require("../models/users.model");
+const User = require("../models/user.model");
 
 authenticationRouter.post('/jwt', async (req, res) => {
     const user = req.body;
@@ -21,7 +21,7 @@ const verifyJWT = (req, res, next) => {
     const token = authorization.split(' ')[1]; // Extract the token from the header
     jwt.verify(token, process.env.ACCESS_TOKEN, (error, decoded) => {
         if (error) {
-            return res.status(403).send({ error: true, message: 'unauthorized access' });
+            return res.status(403).send({ error: true, message: error.message });
         }
         req.decoded = decoded;
         next();
@@ -42,7 +42,7 @@ const verifyAdmin = async (req, res, next) => {
   authenticationRouter.get('/admin/:email', verifyJWT, async (req, res) => {
     const email = req.params.email;
     if (req.decoded.body.email !== email) {
-      res.send({ admin: false });
+      res.status(400).send({ admin: false });
       return;
     }
     const existingUser = await User.findOne({ email });
