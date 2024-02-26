@@ -18,12 +18,13 @@ const LogIn = () => {
         }
         await axios.post(`${configUrl.BASEURL}/api/v1/getUser`, userInfo)
             .then(result => {
-                // console.log(result.data.data);
+                // console.log(result.data.token);
                 if (result.data.statusCode == 2) {
                     setLoading(false);
                     return setErrorMessage(result.data.message);
                 }
                 localStorage.setItem('userInfo', JSON.stringify(result.data.data));
+                localStorage.setItem('access-token', JSON.stringify(result.data.token));
                 navigate("/");
                 window.location.reload();
             })

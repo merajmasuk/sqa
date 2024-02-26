@@ -2,7 +2,7 @@ import { createBrowserRouter } from "react-router-dom";
 import Home from "./pages/Home/Home";
 import MainLayout from "./layout/MainLayout";
 import WrongRoute from "./route/WrongRoute";
-import CommitteeEntry from "./pages/Committee/CommiitteeEntry";
+import CommitteeEntry from "./pages/Committee/CommitteeEntry";
 import EventCommitteeEntry from "./pages/EventCommittee/EventCommitteeEntry";
 import EventSponsorEntry from "./pages/EventSponsor/EventSponsorEntry";
 import EventEntry from "./pages/Event/EventEntry";
