@@ -21,9 +21,6 @@ import AdminRoute from "./route/AdminRoute";
 import ModeratorRoute from "./route/ModeratorRoute";
 import Practice from "./pages/Practice/Practice";
 import AllUser from "./pages/AllUsers/AllUsers";
-import AdminRoute from "./route/AdminRoute";
-import ModeratorRoute from "./route/ModeratorRoute";
-import Practice from "./pages/Practice/Practice";
 
 import Example from "./pages/Example/Example";
 import CoursesEntry from "./pages/Enrollment/CoursesEntry";

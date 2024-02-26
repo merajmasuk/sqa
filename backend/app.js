@@ -44,10 +44,6 @@ app.use("/api/v1",forumRoute);
 
 
 
-//subject course
-const subjectCourseRoute=require("./routes/subjectCourse.route");
-app.use("/api/v1",subjectCourseRoute);
-
 
 //assessment route
 const assessmentRoute=require("./routes/assessment.route");
@@ -89,9 +85,6 @@ const subjectCourseRoute=require("./routes/subjectCourse.route");
 app.use("/api/v1",subjectCourseRoute);
 
 
-//assessment route
-const assessmentRoute=require("./routes/assessment.route");
-app.use("/api/v1",assessmentRoute);
 
 //curriculum route
 const curriculumRoute=require("./routes/curriculum.route");
