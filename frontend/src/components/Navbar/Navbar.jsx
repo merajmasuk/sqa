@@ -1,6 +1,6 @@
 import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
-import { AuthContext } from "../../Provider/AuthProvider";
+import { AuthContext } from "../../provider/AuthProvider";
 
 
 const Navbar = () => {
@@ -9,6 +9,7 @@ const Navbar = () => {
 
     const handleLogOut = async () => {
         setLoading(true);
+        localStorage.removeItem('access-token');
         localStorage.removeItem('userInfo');
         window.location.reload();
         setLoading(false);

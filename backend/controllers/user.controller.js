@@ -1,7 +1,7 @@
 const userSchema = require("../models/user.model");
 const bcrypt = require('bcrypt');
 const saltRounds = 10;
-
+const jwt = require('jsonwebtoken');
 /**
  * Set user data in the database.
  *
@@ -85,19 +85,21 @@ const getUser = async (req, res) => {
             return res.status(404).json({ statusCode: 2, message: "Invalid user", status: "unsuccess", data: null });
         }
 
-        const userInfo={
-            email:result1.email,
-            mobile:result1.mobile,
-            name:result1.name,
-            role:result1.role,
-            _id:result1._id
+        const userInfo = {
+            email: result1.email,
+            mobile: result1.mobile,
+            name: result1.name,
+            role: result1.role,
+            _id: result1._id
         }
+
         // Compare the provided password with the hashed password in the database
         bcrypt.compare(data.password, result1.password, async function (err, result) {
             if (result) {
 
+                const token = jwt.sign(userInfo, process.env.ACCESS_TOKEN, { expiresIn: '1h' });
                 // Return success response with the retrieved user data
-                return res.status(200).json({ statusCode: 1, message: "Data retrieved successfully.", status: "success", data: userInfo });
+                return res.status(200).json({ statusCode: 1, message: "Data retrieved successfully.", status: "success", data: userInfo, token:token });
             }
 
             // Return 400 if the password is incorrect
@@ -233,4 +235,51 @@ const resetPassword = async (req, res) => {
     }
 };
 
-module.exports = { setUser, getUser, forgetPassword, resetPassword };
+const getAllUsers = async(req,res) =>{
+    try{
+        const users = await userSchema.find()
+        if(!users){
+            return res.status(400).json("Not found")
+        }
+        return res.status(200).json(users)
+
+    }
+    catch(error){
+        return res.status(500).json(error.message)
+    }
+}
+
+/**
+ * Updates user information in the database.
+ * @async
+ * @param {Object} req - Express request object.
+ * @param {Object} res - Express response object.
+ * @returns {Promise<void>} - A promise that resolves once the update operation is completed.
+ */
+
+const updateUser =async(req,res)=>{
+    // Extract user ID from request parameters
+    const id = req.params.id
+    // Extract user data from request body
+    const data = req.body;
+
+    try {
+        // Attempt to update user information in the database
+        const result = await userSchema.findOneAndUpdate(
+            {_id:id},
+            data,
+            {upsert:true}
+        );
+        res.status(200).json(result)
+    } catch (error) {
+        // If an error occurs, respond with status code 500 and error message
+        res.status(500).json({
+            statusCode: 2,
+            message: error.message,
+            status: "unsuccess",
+            data: null
+        });
+    }
+}
+
+module.exports = { setUser, getUser, forgetPassword, resetPassword,getAllUsers,updateUser };

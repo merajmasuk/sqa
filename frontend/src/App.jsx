@@ -2,7 +2,7 @@ import { createBrowserRouter } from "react-router-dom";
 import Home from "./pages/Home/Home";
 import MainLayout from "./layout/MainLayout";
 import WrongRoute from "./route/WrongRoute";
-import CommitteeEntry from "./pages/Committee/CommiitteeEntry";
+import CommitteeEntry from "./pages/Committee/CommitteeEntry";
 import EventCommitteeEntry from "./pages/EventCommittee/EventCommitteeEntry";
 import EventSponsorEntry from "./pages/EventSponsor/EventSponsorEntry";
 import EventEntry from "./pages/Event/EventEntry";
@@ -20,6 +20,11 @@ import ResetPassword from "./pages/ResetPassword/ResetPassword";
 import AdminRoute from "./route/AdminRoute";
 import ModeratorRoute from "./route/ModeratorRoute";
 import Practice from "./pages/Practice/Practice";
+import AllUser from "./pages/AllUsers/AllUsers";
+
+import Example from "./pages/Example/Example";
+import CoursesEntry from "./pages/Enrollment/CoursesEntry";
+
 
 const App = createBrowserRouter([
   {
@@ -37,7 +42,7 @@ const App = createBrowserRouter([
       },
       {
         path: "eventEntry",
-        element: <PrivateRoute><EventEntry /></PrivateRoute>
+        element: <PrivateRoute><PrivateRoute><EventEntry /></PrivateRoute></PrivateRoute>
       },
       {
         path: "sponsorEntry",
@@ -98,6 +103,14 @@ const App = createBrowserRouter([
       {
         path:"practice",
         element:<PrivateRoute><AdminRoute><Practice/></AdminRoute></PrivateRoute>
+      },
+      {
+        path:"Example",
+        element:<Example/>
+      },
+      {
+        path:"CoursesEntry",
+        element:<CoursesEntry/>
       }
     ]
   },
@@ -112,6 +125,10 @@ const App = createBrowserRouter([
       {
         path: "revenue",
         element:<Revenue/>
+      },
+      {
+        path: "allUser",
+        element:<AllUser/>
       },
     ]
   }
