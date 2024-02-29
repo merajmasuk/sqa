@@ -44,34 +44,34 @@ app.use("/api/v1",forumRoute);
 
 
 
+//curriculum route
+const curriculumRoute=require("./routes/curriculum.route");
+app.use("/api/v1",curriculumRoute);
 
 //assessment route
 const assessmentRoute=require("./routes/assessment.route");
 app.use("/api/v1",assessmentRoute);
 
 
-
 //platform route
 const platformRoute=require("./routes/platform.route");
 app.use("/api/v1",platformRoute);
+
+//instructors route
+const instructorsRoute=require("./routes/instructors.route");
+app.use("/api/v1",instructorsRoute);
 
 //courses route
 const coursesRoute=require("./routes/courses.route");
 app.use("/api/v1",coursesRoute);
 
 
-
-
-//assesmentevaluation route
+//assesment evaluation route
 const assesmentevaluationRoute=require("./routes/assesmentevaluation.route");
 app.use("/api/v1",assesmentevaluationRoute);
 
-//instructors route
-const instructorsRoute=require("./routes/instructors.route");
-app.use("/api/v1",instructorsRoute);
 
-
-//maintenanceupdates
+//maintenance updates
 const maintenanceupdatesRoute=require("./routes/maintenanceupdates.route");
 app.use("/api/v1",maintenanceupdatesRoute);
 
@@ -84,11 +84,6 @@ app.use("/api/v1",coursereflectionModel);
 const subjectCourseRoute=require("./routes/subjectCourse.route");
 app.use("/api/v1",subjectCourseRoute);
 
-
-
-//curriculum route
-const curriculumRoute=require("./routes/curriculum.route");
-app.use("/api/v1",curriculumRoute);
 
 
 app.get("/", (req, res) => {
